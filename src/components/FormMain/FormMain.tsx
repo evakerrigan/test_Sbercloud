@@ -1,4 +1,4 @@
-import "./Main.css";
+import "./FormMain.css";
 import { Formik, Form, Field } from "formik";
 
 function validatePhone(value: string) {
@@ -16,7 +16,7 @@ function validateEmail(value: string) {
   }
 }
 
-export const Main = () => {
+export const FormMain = () => {
   return (
     <div className="main">
 
