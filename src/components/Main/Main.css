@@ -5,9 +5,7 @@
   position: relative;
 }
 .form__description {
-  font-family: 'SB Sans Interface';
-font-style: normal;
-font-weight: 400;
+  font-family: 'SB Sans Interface Regular';
 font-size: 14px;
 line-height: 20px;
 display: flex;
@@ -17,9 +15,7 @@ margin-bottom: 8px;
 .form__input {
   width: 400px;
 padding: 12px;
-font-family: 'SB Sans Interface';
-font-style: normal;
-font-weight: 400;
+font-family: 'SB Sans Interface Regular';
 font-size: 14px;
 line-height: 20px;
 color: rgba(0, 0, 0, 0.48);
@@ -39,7 +35,9 @@ background: #5558FA;
 border-radius: 4px;
 color: #fff;
 cursor: pointer;
-margin: 21px 0;
+margin: 23px 0;
+font-size: 14px;
+line-height: 20px;
 }
 .form__button:hover {
   background: #7476f9;

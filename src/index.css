@@ -1,12 +1,7 @@
 :root {
+  font-family: 'SB Sans Interface Regular';
   background-color: #242424;
   /* background-color: #f4f4f5; */
-/*
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%; */
 }
 
 *, *:before , *:after {box-sizing: border-box;}
@@ -27,4 +22,28 @@ a {
 button {
   outline: none;
   border: none;
+}
+@font-face {
+  font-family: 'SB Sans Display Regular';
+  src: url('./assets/fonts/SBSansDisplayRegular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SB Sans Display SemiBold';
+  src: url('./assets/fonts/SBSansDisplaySemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SB Sans Interface Regular';
+  src: url('./assets/fonts/SBSansInterface-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SB Sans Interface SemiBold';
+  src: url('./assets/fonts/SBSansInterface-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
 }
