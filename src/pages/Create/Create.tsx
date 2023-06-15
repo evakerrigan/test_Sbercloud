@@ -1,3 +1,4 @@
+import "./Create.css";
 import { FormStep1 } from "../../components/FormStep1/FormStep1"
 import { Stepper } from "../../components/Stepper/Stepper"
 

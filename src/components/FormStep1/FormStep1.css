@@ -1,0 +1,13 @@
+.form__wrapper-button {
+  display: flex;
+  justify-content: space-between;
+}
+.step .form__input {
+  width: 300px;
+}
+.step .form__wrapper {
+  margin-bottom: 23px;
+}
+.form__wrapper-button {
+  padding-top: 17px;
+}

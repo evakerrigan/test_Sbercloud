@@ -1,0 +1,8 @@
+.main__page {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 704px;
+  padding: 24px 24px;
+  border-radius: 12px 12px 0px 0px;
+  background-color: #fff;
+}

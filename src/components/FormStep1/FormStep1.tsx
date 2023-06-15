@@ -1,5 +1,8 @@
+import "./FormStep1.css";
 import { Formik, Form, Field } from "formik";
 import { Link } from "react-router-dom";
+// import Select from 'react-select';
+// import { FormControl, MenuItem, Select, SelectChangeEvent,} from '@mui/material';
 
 function validateNickName(value: string) {
   if (!value) {
@@ -29,8 +32,26 @@ function validateSex(value: string) {
 }
 
 export const FormStep1 = () => {
+
+  // const sexOptions = [
+  //   { value: 'null', label: 'Не выбран' },
+  //   { value: 'man', label: 'man' },
+  //   { value: 'woman', label: 'woman' },
+  // ];
+
+  // const customStyles = {
+  //   control: (provided) => ({
+  //     ...provided,
+  //     '& select__indicator-separator': {
+  //       display: 'none',
+  //     },
+  //     width: 200,
+  //   }),
+  // };
+
+
   return (
-    <div>
+    <div className="step">
       <Formik
         initialValues={{
           nickname: "",
@@ -77,14 +98,22 @@ export const FormStep1 = () => {
                 <option value="man">Man</option>
                 <option value="woman">Woman</option>
               </Field>
+              {/* <Select
+                className="basic-single"
+                classNamePrefix="select"
+                defaultValue={sexOptions[0]}
+                styles={customStyles}
+                name="color"
+                options={sexOptions}
+              /> */}
               {touched.sex && errors.sex && (
                 <div className="form__error">{errors.sex}</div>
               )}
             </div>
-
-            <button id="button-back" type="submit" className="form__button back">Назад</button>
-            <Link id="button-back" className="form__button back" to="/">Назад 2</Link>
-            <button id="button-next" type="submit" className="form__button next">Далее</button>
+            <div className="form__wrapper-button">
+              <Link id="button-back" className="form__button back" to="/">Назад</Link>
+              <button id="button-next" type="submit" className="form__button next">Далее</button>
+            </div>
 
           </Form>
 

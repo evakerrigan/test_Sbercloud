@@ -51,6 +51,7 @@
 }
 .form__button:hover {
   background: #7476f9;
+  color: #fff;
 }
 .form__button:active {
   background: #272873;
