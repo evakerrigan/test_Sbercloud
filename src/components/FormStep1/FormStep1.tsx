@@ -23,7 +23,7 @@ function validateSurName(value: string) {
   }
 }
 function validateSex(value: string) {
-  if (!value) {
+  if (value === 'null') {
     return "Выберите пол";
   }
 }
@@ -72,15 +72,19 @@ export const FormStep1 = () => {
 
             <div className="form__wrapper">
               <label className="form__description">Sex</label>
-              <Field className="form__input" type="name" name="name" placeholder="Name" validate={validateSex} />
-              {touched.name && errors.name && (
-                <div className="form__error">{errors.name}</div>
+              <Field className="form__input" type="sex" name="sex" validate={validateSex} as="select">
+                <option value="null">Не выбран</option>
+                <option value="man">Man</option>
+                <option value="woman">Woman</option>
+              </Field>
+              {touched.sex && errors.sex && (
+                <div className="form__error">{errors.sex}</div>
               )}
             </div>
 
-            <button id="button-start" type="submit" className="form__button back">Назад</button>
-            <Link className="form__button back" to="/">Назад 2</Link>
-            <button id="button-start" type="submit" className="form__button forward">Далее</button>
+            <button id="button-back" type="submit" className="form__button back">Назад</button>
+            <Link id="button-back" className="form__button back" to="/">Назад 2</Link>
+            <button id="button-next" type="submit" className="form__button next">Далее</button>
 
           </Form>
 

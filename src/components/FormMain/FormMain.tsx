@@ -44,14 +44,14 @@ export const FormMain = () => {
 
             <div className="form__wrapper">
               <label className="form__description">Email</label>
-              <Field className="form__input" type="email" name="email" placeholder="Email" validate={validateEmail} />
+              <Field  className="form__input" type="email" name="email" placeholder="Email" validate={validateEmail} />
               {touched.email && errors.email && (
                 <div className="form__error">{errors.email}</div>
               )}
             </div>
 
-            <button id="button-start" type="submit" className="form__button forward">Начать</button>
-            <Link  className="form__button forward" to="/create">Начать 2</Link>
+            <button id="button-start" type="submit" className="form__button next">Начать</button>
+            <Link  className="form__button next" to="/create">Начать 2</Link>
 
           </Form>
 
