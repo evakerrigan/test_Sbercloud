@@ -20,9 +20,11 @@
   line-height: 20px;
   color: rgba(0, 0, 0, 0.48);
   margin-bottom: 24px;
-  background: rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(0, 0, 0, 0.16);
   border-radius: 4px;
+}
+.form__input:disabled {
+  background: rgba(0, 0, 0, 0.04);
 }
 .form__error {
   position: absolute;
