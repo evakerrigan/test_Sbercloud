@@ -32,19 +32,23 @@ export const Main = () => {
 
           <Form className="form">
 
-            <label className="form__description">Номер телефона</label>
-            <Field type="phone" name="phone" placeholder="Phone" validate={validatePhone} />
-            {touched.phone && errors.phone && (
-              <div className="form__error">{errors.phone}</div>
-            )}
+            <div className="form__wrapper">
+              <label className="form__description">Номер телефона</label>
+              <Field className="form__input" type="phone" name="phone" placeholder="Phone" validate={validatePhone} />
+              {touched.phone && errors.phone && (
+                <div className="form__error">{errors.phone}</div>
+              )}
+            </div>
 
-            <label className="form__description">Email</label>
-            <Field type="email" name="email" placeholder="Email" validate={validateEmail} />
-            {touched.email && errors.email && (
-              <div className="form__error">{errors.email}</div>
-            )}
+            <div className="form__wrapper">
+              <label className="form__description">Email</label>
+              <Field className="form__input" type="email" name="email" placeholder="Email" validate={validateEmail} />
+              {touched.email && errors.email && (
+                <div className="form__error">{errors.email}</div>
+              )}
+            </div>
 
-            <button type="submit" className="form__button">Начать</button>
+            <button id="button-start" type="submit" className="form__button">Начать</button>
 
           </Form>
 
