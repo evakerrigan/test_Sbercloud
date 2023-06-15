@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./FormMain.css";
 import { Formik, Form, Field } from "formik";
 import { useSelector } from "react-redux";
-import { selectorInitial } from "../../store/initialSlice";
+import { IState, InitialState } from '../../store/initialSlice';
 
 
 function validatePhone(value: string) {
@@ -24,16 +24,16 @@ function validateEmail(value: string) {
 export const FormMain = () => {
 
   const navigate = useNavigate();
-
-  const initialPhone = useSelector(selectorInitial);
+  // const initialPhone = useSelector(selectorInitial);
+  const startData = useSelector<IState>((state) => state.initialS) as InitialState;
 
   return (
     <div className="main">
 
       <Formik
         initialValues={{
-          phone: { initialPhone },
-          email: "",
+          phone: '',
+          email: '',
         }}
         onSubmit={(values) => {
           console.log(values);
@@ -46,15 +46,31 @@ export const FormMain = () => {
 
             <div className="form__wrapper">
               <label className="form__description">Номер телефона</label>
-              <Field className="form__input" type="phone" name="phone" placeholder="Phone" validate={validatePhone} />
-              {/* {touched.phone && errors.phone && (
+              <Field
+                className="form__input"
+                type="phone"
+                name="phone"
+                placeholder="Phone"
+                validate={validatePhone}
+                value={startData.phone}
+                disabled
+              />
+              {touched.phone && errors.phone && (
                 <div className="form__error">{errors.phone}</div>
-              )} */}
+              )}
             </div>
 
             <div className="form__wrapper">
               <label className="form__description">Email</label>
-              <Field className="form__input" type="email" name="email" placeholder="Email" validate={validateEmail} />
+              <Field
+                className="form__input"
+                type="email"
+                name="email"
+                placeholder="Email"
+                validate={validateEmail}
+                value={startData.email}
+                disabled
+              />
               {touched.email && errors.email && (
                 <div className="form__error">{errors.email}</div>
               )}
