@@ -19,6 +19,7 @@ function validateEmail(value: string) {
 export const Main = () => {
   return (
     <div className="main">
+
       <Formik
         initialValues={{
           phone: "",
