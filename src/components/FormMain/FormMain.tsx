@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./FormMain.css";
 import { Formik, Form, Field } from "formik";
 import { useSelector } from "react-redux";
@@ -22,6 +23,8 @@ function validateEmail(value: string) {
 
 export const FormMain = () => {
 
+  const navigate = useNavigate();
+
   const initialPhone = useSelector(selectorInitial);
 
   return (
@@ -34,6 +37,7 @@ export const FormMain = () => {
         }}
         onSubmit={(values) => {
           console.log(values);
+          navigate("/create");
         }}
       >
         {({ touched, errors }) => (
@@ -57,7 +61,6 @@ export const FormMain = () => {
             </div>
 
             <button id="button-start" type="submit" className="form__button next">Начать</button>
-            <Link className="form__button next" to="/create">Начать 2</Link>
 
           </Form>
 
