@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./FormMain.css";
 import { Formik, Form, Field } from "formik";
 
@@ -49,7 +50,8 @@ export const FormMain = () => {
               )}
             </div>
 
-            <button id="button-start" type="submit" className="form__button">Начать</button>
+            <button id="button-start" type="submit" className="form__button forward">Начать</button>
+            <Link  className="form__button forward" to="/create">Начать 2</Link>
 
           </Form>
 
