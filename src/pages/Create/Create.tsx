@@ -3,12 +3,14 @@ import { FormStep1 } from "../../components/FormStep1/FormStep1"
 import { FormStep2 } from "../../components/FormStep2/FormStep2";
 import { FormStep3 } from "../../components/FormStep3/FormStep3";
 import { Dispatch, SetStateAction, useState } from "react";
+import { Modal } from "../../components/Modal/Modal";
 
 export interface FormStepProps {
   setActiveStep: Dispatch<SetStateAction<number>>,
 }
 
 export const Create = () => {
+  const [active, setActive] = useState(true);
 
   const [activeStep, setActiveStep] = useState(0);
 
@@ -68,13 +70,14 @@ export const Create = () => {
             style={{ backgroundImage: activeStep === 0 ? "" : activeStep === 1 ? "" : "url('/src/assets/images/DotSmall.png')" }}
           >
           </div>
-          <div 
-          className="progressbar__number"
-          style={{ color: activeStep === 0 ? "" : activeStep === 1 ? "" : "#5558fa" }}
+          <div
+            className="progressbar__number"
+            style={{ color: activeStep === 0 ? "" : activeStep === 1 ? "" : "#5558fa" }}
           >3</div>
         </div>
       </div>
       {FormStep()}
+      {active && <Modal setActive={setActive} />}
     </div>
   )
 }
