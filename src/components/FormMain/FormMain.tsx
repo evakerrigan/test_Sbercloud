@@ -7,9 +7,10 @@ import { IState, InitialState } from '../../store/initialSlice';
 
 
 function validatePhone(value: string) {
+  const digits = value.match(/\d/g);
   if (!value) {
     return "Введите номер телефона";
-  } else if (value.length !== 11) {
+  } else if (digits?.length !== 11) {
     return "Номер телефона должен состоять из 11 цифр";
   }
 }
