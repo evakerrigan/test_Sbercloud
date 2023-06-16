@@ -32,8 +32,8 @@ export const FormMain = () => {
 
       <Formik
         initialValues={{
-          phone: '',
-          email: '',
+          phone: startData.phone,
+          email: startData.email,
         }}
         onSubmit={(values) => {
           console.log(values);
@@ -52,7 +52,6 @@ export const FormMain = () => {
                 name="phone"
                 placeholder="Phone"
                 validate={validatePhone}
-                value={startData.phone}
                 disabled
               />
               {touched.phone && errors.phone && (
@@ -68,7 +67,6 @@ export const FormMain = () => {
                 name="email"
                 placeholder="Email"
                 validate={validateEmail}
-                value={startData.email}
                 disabled
               />
               {touched.email && errors.email && (
