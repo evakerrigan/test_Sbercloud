@@ -52,7 +52,7 @@ export const FormStep1 = ({ setActiveStep }: FormStepProps) => {
 
 
   return (
-    <div className="step">
+    <div className="step step1">
       <Formik
         initialValues={{
           nickname: "",

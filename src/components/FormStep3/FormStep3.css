@@ -1,0 +1,8 @@
+.form__input.about {
+  width: calc(100% - 10px);
+  min-height: 83px;
+  margin-bottom: 20px;
+}
+.step3 .form__wrapper-button {
+  margin-right: 10px;
+}

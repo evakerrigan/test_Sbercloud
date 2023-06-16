@@ -1,3 +1,4 @@
+import "./FormStep3.css";
 import { Form, Field, Formik } from "formik";
 // import { Dispatch, SetStateAction } from "react";
 import { FormStepProps } from "../../pages/Create/Create";
@@ -14,7 +15,7 @@ function validateAbout(value: string) {
 
 export const FormStep3 = ({ setActiveStep }: FormStepProps) => {
   return (
-    <div className="step">
+    <div className="step step3">
       <Formik
         initialValues={{
           about: '',
@@ -30,7 +31,8 @@ export const FormStep3 = ({ setActiveStep }: FormStepProps) => {
             <div className="form__wrapper">
               <label className="form__description">About</label>
               <Field
-                className="form__input"
+                id="field-about"
+                className="form__input about"
                 type="text"
                 name="about"
                 placeholder="Placeholder"
@@ -57,6 +59,7 @@ export const FormStep3 = ({ setActiveStep }: FormStepProps) => {
           </Form>
         )}
       </Formik>
+
     </div>
   )
 }

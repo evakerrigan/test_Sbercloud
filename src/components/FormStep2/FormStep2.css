@@ -1,11 +1,17 @@
+.step2__list-text {
+  margin: 0;
+}
+.step2 .form__input {
+  margin-bottom: 6px;
+}
 .step2__button-add {
-  padding: 12px 16px;
+  padding: 22px 21px;
   border-radius: 4px;
   cursor: pointer;
   width: 30px;
   height: 30px;
   /* margin: 23px 0; */
-  font-size: 14px;
+  font-size: 30px;
   line-height: 20px;
   background: #fff;
   color: #5558fa;
@@ -39,6 +45,37 @@
   background-repeat: no-repeat;
   cursor: pointer;
   position: absolute;
-  top: 10px;
-  left: 300px;
+  top: 13px;
+  left: 317px;
+}
+.checkbox__title {
+  padding-top: 25px;
+  padding-bottom: 3px;
+  font-size: 14px;
+}
+.radio__title {
+  padding-top: 25px;
+  padding-bottom: 3px;
+  font-size: 14px;
+}
+.step2 .form__wrapper-button {
+  padding-top: 43px;
+}
+.form__checkbox input {
+  margin: 0 10px 0 0;
+  transform: scale(1.2);
+  color: #333;
+}
+.form__radio input {
+  margin: 0 10px 0 0;
+  transform: scale(1.2);
+  color: #333;
+}
+.form__checkbox{
+  font-size: 14px;
+  padding-bottom: 2px;
+}
+.form__radio {
+  font-size: 14px;
+  padding-bottom: 2px;
 }
