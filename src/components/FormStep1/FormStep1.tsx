@@ -31,7 +31,7 @@ function validateSex(value: string) {
   }
 }
 
-export const FormStep1 = () => {
+export const FormStep1 = ({ setActiveStep }: any) => {
 
   // const sexOptions = [
   //   { value: 'null', label: 'Не выбран' },
@@ -69,7 +69,7 @@ export const FormStep1 = () => {
 
             <div className="form__wrapper">
               <label className="form__description">Nickname</label>
-              <Field className="form__input" type="nickname" name="nickname" placeholder="Nickname" validate={validateNickName} />
+              <Field id="field-nickname" className="form__input" type="nickname" name="nickname" placeholder="Placeholder" validate={validateNickName} />
               {touched.nickname && errors.nickname && (
                 <div className="form__error">{errors.nickname}</div>
               )}
@@ -77,7 +77,7 @@ export const FormStep1 = () => {
 
             <div className="form__wrapper">
               <label className="form__description">Name</label>
-              <Field className="form__input" type="name" name="name" placeholder="Name" validate={validateName} />
+              <Field id="field-name" className="form__input" type="name" name="name" placeholder="Placeholder" validate={validateName} />
               {touched.name && errors.name && (
                 <div className="form__error">{errors.name}</div>
               )}
@@ -85,7 +85,7 @@ export const FormStep1 = () => {
 
             <div className="form__wrapper">
               <label className="form__description">Surname</label>
-              <Field className="form__input" type="surname" name="surname" placeholder="Surname" validate={validateSurName} />
+              <Field id="field-surname" className="form__input" type="surname" name="surname" placeholder="Placeholder" validate={validateSurName} />
               {touched.surname && errors.surname && (
                 <div className="form__error">{errors.surname}</div>
               )}
@@ -93,10 +93,10 @@ export const FormStep1 = () => {
 
             <div className="form__wrapper">
               <label className="form__description">Sex</label>
-              <Field className="form__input" type="sex" name="sex" validate={validateSex} as="select">
+              <Field id="field-sex" className="form__input" type="sex" name="sex" validate={validateSex} as="select">
                 <option value="null">Не выбран</option>
-                <option value="man">Man</option>
-                <option value="woman">Woman</option>
+                <option id="field-sex-option-man" value="man">Man</option>
+                <option id="field-sex-option-woman" value="woman">Woman</option>
               </Field>
               {/* <Select
                 className="basic-single"
@@ -112,7 +112,11 @@ export const FormStep1 = () => {
             </div>
             <div className="form__wrapper-button">
               <Link id="button-back" className="form__button back" to="/">Назад</Link>
-              <button id="button-next" type="submit" className="form__button next">Далее</button>
+              <button
+                id="button-next"
+                className="form__button next"
+                onClick={() => { setActiveStep(1) }}
+              >Далее</button>
             </div>
 
           </Form>

@@ -48,7 +48,7 @@ export const FormMain = () => {
               <label className="form__description">Номер телефона</label>
               <Field
                 className="form__input"
-                type="phone"
+                type="text"
                 name="phone"
                 placeholder="Phone"
                 validate={validatePhone}
