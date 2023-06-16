@@ -1,8 +1,8 @@
 import "./FormStep2.css";
 import { Field, Form, Formik } from "formik";
-import { Link } from "react-router-dom";
+import { FormStepProps } from "../../pages/Create/Create";
 
-export const FormStep2 = ({ setActiveStep }: any) => {
+export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
   return (
     <div className="step">
       <Formik

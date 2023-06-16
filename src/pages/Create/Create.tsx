@@ -2,7 +2,11 @@ import "./Create.css";
 import { FormStep1 } from "../../components/FormStep1/FormStep1"
 import { FormStep2 } from "../../components/FormStep2/FormStep2";
 import { FormStep3 } from "../../components/FormStep3/FormStep3";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
+
+export interface FormStepProps {
+  setActiveStep: Dispatch<SetStateAction<number>>,
+}
 
 export const Create = () => {
 

@@ -1,6 +1,7 @@
 import "./FormStep1.css";
 import { Formik, Form, Field } from "formik";
 import { Link } from "react-router-dom";
+import { FormStepProps } from "../../pages/Create/Create";
 // import Select from 'react-select';
 // import { FormControl, MenuItem, Select, SelectChangeEvent,} from '@mui/material';
 
@@ -31,7 +32,7 @@ function validateSex(value: string) {
   }
 }
 
-export const FormStep1 = ({ setActiveStep }: any) => {
+export const FormStep1 = ({ setActiveStep }: FormStepProps) => {
 
   // const sexOptions = [
   //   { value: 'null', label: 'Не выбран' },

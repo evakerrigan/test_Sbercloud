@@ -1,5 +1,11 @@
 import { Field, Formik } from "formik";
-import { Form, Link } from "react-router-dom";
+// import { Dispatch, SetStateAction } from "react";
+import { Form } from "react-router-dom";
+import { FormStepProps } from "../../pages/Create/Create";
+
+// interface FormStep3Props {
+//   setActiveStep: Dispatch<SetStateAction<number>>,
+// }
 
 function validateAbout(value: string) {
   if (!value) {
@@ -7,10 +13,10 @@ function validateAbout(value: string) {
   }
 }
 
-export const FormStep3 = ({ setActiveStep }: any) => {
+export const FormStep3 = ({ setActiveStep }: FormStepProps) => {
   return (
     <div className="step">
-      {/* <Formik
+      <Formik
         initialValues={{
           about: '',
         }}
@@ -51,7 +57,7 @@ export const FormStep3 = ({ setActiveStep }: any) => {
             </div>
           </Form>
         )}
-      </Formik> */}
+      </Formik>
     </div>
   )
 }
