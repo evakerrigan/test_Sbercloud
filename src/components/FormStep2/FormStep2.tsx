@@ -24,15 +24,15 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
             <label className="form__description">Advantages</label>
             <ul className="step2__list-text">
               <li className="step2__wrapper">
-                <Field id="field-advantages-1" className="form__input advantages" type="text" name="field-advantages-1" placeholder="Placeholder" />
+                <Field id="field-advantages-1" className="form__input advantages" type="text" name="advantages1" placeholder="Placeholder" />
                 <div id="button-remove-1" className="advantages-delete"></div>
               </li>
               <li className="step2__wrapper">
-                <Field id="field-advantages-2" className="form__input advantages" type="text" name="field-advantages-2" placeholder="Placeholder" />
+                <Field id="field-advantages-2" className="form__input advantages" type="text" name="advantages2" placeholder="Placeholder" />
                 <div id="button-remove-1" className="advantages-delete"></div>
               </li>
               <li className="step2__wrapper">
-                <Field id="field-advantages-3" className="form__input advantages" type="text" name="field-advantages-3" placeholder="Placeholder" />
+                <Field id="field-advantages-3" className="form__input advantages" type="text" name="advantages3" placeholder="Placeholder" />
                 <div id="button-remove-1" className="advantages-delete"></div>
               </li>
             </ul>
