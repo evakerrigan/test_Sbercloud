@@ -29,8 +29,50 @@ export const Create = () => {
         <div
           className="progressbar__line"
           style={{ width: activeStep === 0 ? "0%" : activeStep === 1 ? "50%" : "100%" }}
-        ></div>
-
+        >
+        </div>
+        <div
+          className="progressbar__dot dot1"
+          style={{ backgroundColor: activeStep === 0 ? "#5558fa" : activeStep === 1 ? "#5558fa" : "#5558fa" }}
+        >
+          <div
+            className="progressbar__image"
+            style={{ backgroundImage: activeStep === 0 ? "url('src/assets/images/DotSmall.png')" : activeStep === 1 ? "url('/src/assets/images/CheckSmall.png')" : "url('/src/assets/images/CheckSmall.png')" }}
+          >
+          </div>
+          <div
+            className="progressbar__number"
+            style={{ color: activeStep === 0 ? "#5558fa" : activeStep === 1 ? "#5558fa" : "#5558fa" }}
+          >1</div>
+        </div>
+        <div
+          className="progressbar__dot dot2"
+          style={{ backgroundColor: activeStep === 0 ? "" : activeStep === 1 ? "#5558fa" : "#5558fa" }}
+        >
+          <div
+            className="progressbar__image"
+            style={{ backgroundImage: activeStep === 0 ? "" : activeStep === 1 ? "url('/src/assets/images/DotSmall.png')" : "url('/src/assets/images/CheckSmall.png')" }}
+          >
+          </div>
+          <div
+            className="progressbar__number"
+            style={{ color: activeStep === 0 ? "" : activeStep === 1 ? "#5558fa" : "#5558fa" }}
+          >2</div>
+        </div>
+        <div
+          className="progressbar__dot dot3"
+          style={{ backgroundColor: activeStep === 0 ? "" : activeStep === 1 ? "" : "#5558fa" }}
+        >
+          <div
+            className="progressbar__image"
+            style={{ backgroundImage: activeStep === 0 ? "" : activeStep === 1 ? "" : "url('/src/assets/images/DotSmall.png')" }}
+          >
+          </div>
+          <div 
+          className="progressbar__number"
+          style={{ color: activeStep === 0 ? "" : activeStep === 1 ? "" : "#5558fa" }}
+          >3</div>
+        </div>
       </div>
       {FormStep()}
     </div>

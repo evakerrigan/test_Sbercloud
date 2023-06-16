@@ -1,3 +1,6 @@
+.step {
+  padding: 43px 0 30px 0;
+}
 .form__wrapper-button {
   display: flex;
   justify-content: space-between;

@@ -5,17 +5,30 @@
   width: 30px;
   height: 30px;
   /* margin: 23px 0; */
-  /* font-size: 14px;
-  line-height: 20px; */
+  font-size: 14px;
+  line-height: 20px;
   background: #fff;
   color: #5558fa;
   border: 1px solid #5558fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.step2__button-add:hover {
+  background: #5558fa;
+  color: #fff;
+}
+.step2__button-add:active {
+  background: #272873;
 }
 .form__checkbox {
   display: flex;
 }
 .form__radio {
   display: flex;
+}
+.step2__wrapper {
+  position: relative;
 }
 
 .advantages-delete {
@@ -25,4 +38,7 @@
   background-image: url(../../assets/images/trash.png);
   background-repeat: no-repeat;
   cursor: pointer;
+  position: absolute;
+  top: 10px;
+  left: 300px;
 }

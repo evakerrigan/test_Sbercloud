@@ -82,7 +82,7 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
                 id="button-next"
                 className="form__button back"
                 onClick={() => { setActiveStep(0) }}
-              >Назад</button>
+              >Back</button>
               <button
                 id="button-next"
                 type="submit"
