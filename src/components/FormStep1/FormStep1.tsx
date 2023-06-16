@@ -8,21 +8,21 @@ import { FormStepProps } from "../../pages/Create/Create";
 function validateNickName(value: string) {
   if (!value) {
     return "Введите никнейм";
-  } else if (value.length !== 3) {
+  } else if (value.length <= 3) {
     return "Никнейм должен состоять из 3 символов";
   }
 }
 function validateName(value: string) {
   if (!value) {
     return "Введите Имя";
-  } else if (value.length !== 3) {
+  } else if (value.length <= 3) {
     return "Имя должно состоять из 3 символов";
   }
 }
 function validateSurName(value: string) {
   if (!value) {
     return "Введите Фамилию";
-  } else if (value.length !== 3) {
+  } else if (value.length <= 3) {
     return "Фамилия должна состоять из 3 символов";
   }
 }
@@ -62,6 +62,7 @@ export const FormStep1 = ({ setActiveStep }: FormStepProps) => {
         }}
         onSubmit={(values) => {
           console.log(values);
+          setActiveStep(1);
         }}
       >
         {({ touched, errors }) => (
@@ -115,8 +116,8 @@ export const FormStep1 = ({ setActiveStep }: FormStepProps) => {
               <Link id="button-back" className="form__button back" to="/">Назад</Link>
               <button
                 id="button-next"
+                type="submit"
                 className="form__button next"
-                onClick={() => { setActiveStep(1) }}
               >Далее</button>
             </div>
 

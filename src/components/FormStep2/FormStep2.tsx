@@ -15,6 +15,7 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
         }}
         onSubmit={(values) => {
           console.log(values);
+          setActiveStep(2);
         }}
       >
         {({ touched, errors }) => (
@@ -86,7 +87,6 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
                 id="button-next"
                 type="submit"
                 className="form__button next"
-                onClick={() => { setActiveStep(2) }}
               >Далее</button>
             </div>
 
