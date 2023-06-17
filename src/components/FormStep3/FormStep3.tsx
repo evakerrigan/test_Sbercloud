@@ -2,18 +2,22 @@ import './FormStep3.css';
 import { Form, Field, Formik } from 'formik';
 // import { Dispatch, SetStateAction } from "react";
 import { FormStepProps } from '../../pages/Create/Create';
+import { useState } from 'react';
 
 // interface FormStep3Props {
 //   setActiveStep: Dispatch<SetStateAction<number>>,
 // }
 
-function validateAbout(value: string) {
-  if (!value) {
-    return 'Введите текст о себе';
-  }
-}
-
 export const FormStep3 = ({ setActiveStep }: FormStepProps) => {
+  const [count, setCount] = useState(0);
+
+  function validateAbout(value: string) {
+    setCount(value.length);
+    if (!value) {
+      return 'Введите текст о себе';
+    }
+  }
+
   return (
     <div className="step step3">
       <Formik
@@ -38,6 +42,7 @@ export const FormStep3 = ({ setActiveStep }: FormStepProps) => {
                 validate={validateAbout}
               />
               {touched.about && errors.about && <div className="form__error">{errors.about}</div>}
+              <p>{count}</p>
             </div>
 
             <div className="form__wrapper-button">
