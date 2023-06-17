@@ -42,7 +42,7 @@ export const FormStep3 = ({ setActiveStep }: FormStepProps) => {
                 validate={validateAbout}
               />
               {touched.about && errors.about && <div className="form__error">{errors.about}</div>}
-              <p>{count}</p>
+              <div className="form__count">{count}/200</div>
             </div>
 
             <div className="form__wrapper-button">
