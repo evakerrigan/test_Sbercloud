@@ -1,12 +1,13 @@
 // import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import './FormMain.css';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, FieldProps } from 'formik';
 import { useSelector } from 'react-redux';
 import { IState, InitialState } from '../../store/initialSlice';
 // import InputMask from 'react-input-mask';
-
+// import InputMask from 'react-input-mask';
 // const phoneNumberMask = [ "(", /[1-9]/, /\d/, /\d/, ")", " ", /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/, /\d/ ];
+import  TextMaskInput from 'react-text-mask';
 
 function validatePhone(value: string) {
   const digits = value.match(/\d/g);
@@ -29,6 +30,29 @@ export const FormMain = () => {
   // const initialPhone = useSelector(selectorInitial);
   const startData = useSelector<IState>((state) => state.initialS) as InitialState;
 
+  function createPhoneNumberMask() {
+    return [
+      '+',
+      '7',
+      ' ',
+      '(',
+      /\d/,
+      /\d/,
+      /\d/,
+      ')',
+      ' ',
+      /\d/,
+      /\d/,
+      /\d/,
+      '-',
+      /\d/,
+      /\d/,
+      '-',
+      /\d/,
+      /\d/,
+    ];
+  }
+
   return (
     <div className="main">
       <Formik
@@ -45,14 +69,17 @@ export const FormMain = () => {
           <Form className="form">
             <div className="form__wrapper">
               <label className="form__description">Номер телефона</label>
-              <Field
-                className="form__input"
-                type="text"
-                name="phone"
+             <Field name="phone" validate={validatePhone}>
+            {({ field }: FieldProps<string>) => (
+              <TextMaskInput
+                {...field}
+                mask={createPhoneNumberMask()}
                 placeholder="Phone"
-                validate={validatePhone}
+                className="form__input"
                 disabled
               />
+            )}
+          </Field>
               {touched.phone && errors.phone && <div className="form__error">{errors.phone}</div>}
             </div>
 
