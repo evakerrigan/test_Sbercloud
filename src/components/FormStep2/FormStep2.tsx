@@ -1,8 +1,19 @@
 import './FormStep2.css';
 import { Field, Form, Formik } from 'formik';
 import { FormStepProps } from '../../pages/Create/Create';
+// import { useDispatch } from "react-redux";
+// import { addAdvantSlice } from '../../store/addAdvantSlice';
+
 
 export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
+
+  // const dispatch = useDispatch();
+
+  // function addAdvantageRedux() {
+  //   dispatch(addAdvantSlice({ ' ' }));
+  // }
+
+
   return (
     <div className="step step2">
       <Formik
@@ -54,7 +65,9 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
               </li>
             </ul>
 
-            <div id="button-add" className="step2__button-add">
+            <div id="button-add" className="step2__button-add" 
+            // onClick={() => { addAdvantageRedux() }}
+            >
               +
             </div>
 

@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export interface InitialState {
   phone: string;
   email: string;
+  advantages: string[];
 }
 
 export interface IState {
