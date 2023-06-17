@@ -1,0 +1,15 @@
+.step2__wrapper {
+  position: relative;
+}
+
+.advantages-delete {
+  display: block;
+  width: 16px;
+  height: 17px;
+  background-image: url(../../assets/images/trash.png);
+  background-repeat: no-repeat;
+  cursor: pointer;
+  position: absolute;
+  top: 13px;
+  left: 317px;
+}
