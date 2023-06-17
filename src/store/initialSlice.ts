@@ -14,6 +14,9 @@ export const initialSlice = createSlice({
   initialState: {
     phone: '+7(931)3151738',
     email: 'evakerrigan@gmail.com',
+    advantages: [
+      '', '', ''
+    ]
   },
   reducers: {},
 });
