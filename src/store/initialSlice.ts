@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 export interface InitialState {
   phone: string;
@@ -15,8 +15,8 @@ export const initialSlice = createSlice({
     phone: '+7(931)3151738',
     email: 'evakerrigan@gmail.com',
   },
-  reducers: {}
-})
+  reducers: {},
+});
 // export const selectorInitial = (state: { phone: { value: string; }; }) => {
 //   return state?.phone?.value;
 // };
