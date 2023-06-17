@@ -1,13 +1,9 @@
-// import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import './FormMain.css';
 import { Formik, Form, Field, FieldProps } from 'formik';
 import { useSelector } from 'react-redux';
-import { IState, InitialState } from '../../store/initialSlice';
-// import InputMask from 'react-input-mask';
-// import InputMask from 'react-input-mask';
-// const phoneNumberMask = [ "(", /[1-9]/, /\d/, /\d/, ")", " ", /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/, /\d/ ];
 import  TextMaskInput from 'react-text-mask';
+import { IState, InitialState } from '../../store/initialSlice';
 
 function validatePhone(value: string) {
   const digits = value.match(/\d/g);
@@ -27,7 +23,6 @@ function validateEmail(value: string) {
 
 export const FormMain = () => {
   const navigate = useNavigate();
-  // const initialPhone = useSelector(selectorInitial);
   const startData = useSelector<IState>((state) => state.initialS) as InitialState;
 
   function createPhoneNumberMask() {
