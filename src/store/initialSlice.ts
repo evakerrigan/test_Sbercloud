@@ -3,7 +3,14 @@ import { createSlice } from '@reduxjs/toolkit';
 export interface InitialState {
   phone: string;
   email: string;
+  nickname: string;
+  name: string;
+  surname: string;
+  sex: string;
   advantages: string[];
+  checkbox: string[];
+  radio: string;
+  about: string;
 }
 
 export interface IState {
@@ -15,9 +22,14 @@ export const initialSlice = createSlice({
   initialState: {
     phone: '+7(931)3151738',
     email: 'evakerrigan@gmail.com',
-    advantages: [
-      '', '', ''
-    ]
+    nickname: '',
+    name: '',
+    surname: '',
+    sex: '',
+    advantages: ['', '', ''],
+    checkbox: [],
+    radio: null,
+    about: '',
   },
   reducers: {},
 });
