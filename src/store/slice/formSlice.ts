@@ -39,6 +39,9 @@ const updateFormValues = (state: FormValuesState, action: PayloadAction<Partial<
   state.formState = { ...state.formState, ...action.payload };
 };
 
+export const selectorFormValues = (appState: { formValuesState: FormValuesState }) =>
+  appState.formValuesState.formState || {};
+
 export const formSlice = createSlice({
   name: 'formState',
   initialState,

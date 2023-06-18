@@ -2,8 +2,8 @@ import './FormStep1.css';
 import { Formik, Form, Field, FormikConfig } from 'formik';
 import { Link } from 'react-router-dom';
 import { FormStepProps } from '../../pages/Create/Create';
-import { FormValues, formSlice } from '../../store/slice/formSlice';
-import { useDispatch } from 'react-redux';
+import { FormValues, formSlice, selectorFormValues } from '../../store/slice/formSlice';
+import { useDispatch, useSelector } from 'react-redux';
 // import Select from 'react-select';
 // import { FormControl, MenuItem, Select, SelectChangeEvent,} from '@mui/material';
 
@@ -57,15 +57,12 @@ export const FormStep1 = ({ setActiveStep }: FormStepProps) => {
     setActiveStep(1);
   }
 
+const formValues = useSelector(selectorFormValues);
+
   return (
     <div className="step step1">
       <Formik
-        initialValues={{
-          nickname: '',
-          name: '',
-          surname: '',
-          sex: '',
-        }}
+        initialValues={formValues}
         onSubmit={onSubmit}
       >
         {({ touched, errors }) => (
