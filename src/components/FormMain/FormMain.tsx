@@ -4,7 +4,6 @@ import { Formik, Form, Field, FieldProps } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import TextMaskInput from 'react-text-mask';
 import { selectorUserInfo } from '../../store/slice/userInfoSlice';
-import { useEffect } from 'react';
 import { formSlice } from '../../store/slice/formSlice';
 
 function validatePhone(value: string) {

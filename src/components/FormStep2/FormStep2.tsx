@@ -13,11 +13,11 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
     dispatch(formSlice.actions.updateFormValues(values));
     setActiveStep(2);
   }
-  function validateAdvantages(value: string) {
-    if (!value) {
-      return 'Введите значение';
-    }
-  }
+  // function validateAdvantages(value: string) {
+  //   if (!value) {
+  //     return 'Введите значение';
+  //   }
+  // }
 
   return (
     <div className="step step2">

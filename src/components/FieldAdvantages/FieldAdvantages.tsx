@@ -1,7 +1,6 @@
 import { Field, FieldArray, FieldConfig, FormikState } from 'formik';
 import './FieldAdvantages.css';
 import { FC } from 'react';
-import { FormValues } from '../../store/slice/formSlice';
 
 interface FieldAdvantagesProps extends FieldConfig<string> {
   label: string;

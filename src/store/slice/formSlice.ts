@@ -1,6 +1,4 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-
 
 export interface FormValues {
   phone: string;
