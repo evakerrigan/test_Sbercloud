@@ -22,7 +22,7 @@ export const Main = () => {
     setTimeout(
       () => sendRequestToBackend().then((userInfo) => {
         dispatch(userInfoSlice.actions.setUserInfo(userInfo))
-      }), 5000);
+      }), 1000);
   })
 
   return (

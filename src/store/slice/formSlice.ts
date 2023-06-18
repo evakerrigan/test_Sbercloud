@@ -29,17 +29,21 @@ const initialState: FormValuesState = {
     radio: '',
     about: '',
   },
-}
+};
 
 const setFormValues = (state: FormValuesState, action: PayloadAction<Partial<FormValues>>) => {
   state.formState = action.payload;
-}
+};
 
+const updateFormValues = (state: FormValuesState, action: PayloadAction<Partial<FormValues>>) => {
+  state.formState = {...state.formState, ...action.payload};
+};
 
 export const formSlice = createSlice({
   name: 'formState',
   initialState,
   reducers: {
     setFormValues,
+    updateFormValues,
   },
 });
