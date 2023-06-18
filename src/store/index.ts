@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { initialSlice } from './initialSlice';
-import { addAdvantSlice } from './addAdvantSlice';
+import { initialSlice } from './slice/formSlice';
+import { userInfoSlice } from './slice/userInfoSlice';
+
 
 export default configureStore({
   reducer: {
     initialS: initialSlice.reducer,
-    addAdv: addAdvantSlice.reducer,
+    userInfoState: userInfoSlice.reducer,
   },
 });

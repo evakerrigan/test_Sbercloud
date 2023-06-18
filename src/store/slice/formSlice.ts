@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export interface InitialState {
+export interface FormState {
   phone: string;
   email: string;
   nickname: string;
@@ -14,14 +14,14 @@ export interface InitialState {
 }
 
 export interface IState {
-  initialS: InitialState;
+  formState: FormState;
 }
 
 export const initialSlice = createSlice({
-  name: 'initialS',
+  name: 'formState',
   initialState: {
-    phone: '+7(931)3151738',
-    email: 'evakerrigan@gmail.com',
+    phone: '467876',
+    email: 'dfghjk',
     nickname: '',
     name: '',
     surname: '',
@@ -33,6 +33,3 @@ export const initialSlice = createSlice({
   },
   reducers: {},
 });
-// export const selectorInitial = (state: { phone: { value: string; }; }) => {
-//   return state?.phone?.value;
-// };

@@ -2,8 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import './FormMain.css';
 import { Formik, Form, Field, FieldProps } from 'formik';
 import { useSelector } from 'react-redux';
-import  TextMaskInput from 'react-text-mask';
-import { IState, InitialState } from '../../store/initialSlice';
+import TextMaskInput from 'react-text-mask';
 
 function validatePhone(value: string) {
   const digits = value.match(/\d/g);
@@ -23,7 +22,10 @@ function validateEmail(value: string) {
 
 export const FormMain = () => {
   const navigate = useNavigate();
-  const startData = useSelector<IState>((state) => state.initialS) as InitialState;
+  const initialValues: any = useSelector<any>((state) => state.userInfoState.userInfo);
+
+  console.log('initialValues', initialValues);
+
 
   function createPhoneNumberMask() {
     return [
@@ -52,8 +54,8 @@ export const FormMain = () => {
     <div className="main">
       <Formik
         initialValues={{
-          phone: startData.phone,
-          email: startData.email,
+          phone: initialValues.phone || '',
+          email: initialValues.email || '',
         }}
         onSubmit={(values) => {
           console.log(values);
@@ -64,17 +66,17 @@ export const FormMain = () => {
           <Form className="form">
             <div className="form__wrapper">
               <label className="form__description">Номер телефона</label>
-             <Field name="phone" validate={validatePhone}>
-            {({ field }: FieldProps<string>) => (
-              <TextMaskInput
-                {...field}
-                mask={createPhoneNumberMask()}
-                placeholder="Phone"
-                className="form__input"
-                disabled
-              />
-            )}
-          </Field>
+              <Field name="phone" validate={validatePhone}>
+                {({ field }: FieldProps<string>) => (
+                  <TextMaskInput
+                    {...field}
+                    mask={createPhoneNumberMask()}
+                    placeholder="Phone"
+                    className="form__input"
+                    disabled
+                  />
+                )}
+              </Field>
               {touched.phone && errors.phone && <div className="form__error">{errors.phone}</div>}
             </div>
 
