@@ -1,21 +1,24 @@
 import './FormStep3.css';
-import { Form, Field, Formik } from 'formik';
-// import { Dispatch, SetStateAction } from "react";
+import { Form, Field, Formik, FormikConfig } from 'formik';
 import { FormStepProps } from '../../pages/Create/Create';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { FormValues, formSlice } from '../../store/slice/formSlice';
 
-// interface FormStep3Props {
-//   setActiveStep: Dispatch<SetStateAction<number>>,
-// }
 
 export const FormStep3 = ({ setActiveStep }: FormStepProps) => {
   const [count, setCount] = useState(0);
+
+  const dispatch = useDispatch();
 
   function validateAbout(value: string) {
     setCount(value.length);
     if (!value) {
       return 'Введите текст о себе';
     }
+  }
+  const onSubmit: FormikConfig<Partial<FormValues>>['onSubmit'] = (values) => {
+    dispatch(formSlice.actions.updateFormValues(values));
   }
 
   return (
@@ -24,9 +27,7 @@ export const FormStep3 = ({ setActiveStep }: FormStepProps) => {
         initialValues={{
           about: '',
         }}
-        onSubmit={(values) => {
-          console.log(values);
-        }}
+        onSubmit={onSubmit}
       >
         {({ touched, errors }) => (
           <Form className="form">

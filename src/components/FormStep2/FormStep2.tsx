@@ -1,18 +1,22 @@
 import './FormStep2.css';
-import { Field, Form, Formik } from 'formik';
+import { Field, Form, Formik, FormikConfig } from 'formik';
 import { FormStepProps } from '../../pages/Create/Create';
-// import { useDispatch } from "react-redux";
-// import { addAdvantSlice } from '../../store/addAdvantSlice';
-
+import { useDispatch } from 'react-redux';
+import { FormValues, formSlice } from '../../store/slice/formSlice';
 
 export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // function addAdvantageRedux() {
-  //   dispatch(addAdvantSlice({ ' ' }));
-  // }
-
+  const onSubmit: FormikConfig<Partial<FormValues>>['onSubmit'] = (values) => {
+    dispatch(formSlice.actions.updateFormValues(values));
+    setActiveStep(2);
+  }
+  function validateAdvantages(value: string) {
+    if (!value) {
+      return 'Введите значение';
+    }
+  }
 
   return (
     <div className="step step2">
@@ -24,10 +28,7 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
           checked: [],
           picked: '',
         }}
-        onSubmit={(values) => {
-          console.log(values);
-          setActiveStep(2);
-        }}
+        onSubmit={onSubmit}
       >
         {({ touched, errors }) => (
           <Form className="form">
@@ -40,8 +41,12 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
                   type="text"
                   name="advantages1"
                   placeholder="Placeholder"
+                  validate={validateAdvantages}
                 />
                 <div id="button-remove-1" className="advantages-delete"></div>
+                {touched.advantages1 && errors.advantages1 && (
+                  <div className="form__error">{errors.advantages1}</div>
+                )}
               </li>
               <li className="step2__wrapper">
                 <Field
@@ -50,8 +55,12 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
                   type="text"
                   name="advantages2"
                   placeholder="Placeholder"
+                  validate={validateAdvantages}
                 />
                 <div id="button-remove-2" className="advantages-delete"></div>
+                {touched.advantages1 && errors.advantages1 && (
+                  <div className="form__error">{errors.advantages1}</div>
+                )}
               </li>
               <li className="step2__wrapper">
                 <Field
@@ -60,13 +69,16 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
                   type="text"
                   name="advantages3"
                   placeholder="Placeholder"
+                  validate={validateAdvantages}
                 />
                 <div id="button-remove-3" className="advantages-delete"></div>
+                {touched.advantages1 && errors.advantages1 && (
+                  <div className="form__error">{errors.advantages1}</div>
+                )}
               </li>
             </ul>
 
-            <div id="button-add" className="step2__button-add" 
-            // onClick={() => { addAdvantageRedux() }}
+            <div id="button-add" className="step2__button-add"
             >
               +
             </div>
@@ -118,10 +130,6 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
                 <Field id="field-radio-group-option-3" type="radio" name="picked" value="3" />3
               </label>
             </div>
-
-            {touched.advantages1 && errors.advantages1 && (
-              <div className="form__error">{errors.advantages1}</div>
-            )}
 
             <div className="form__wrapper-button">
               <button

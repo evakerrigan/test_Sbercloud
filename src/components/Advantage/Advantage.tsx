@@ -12,6 +12,9 @@ export const Advantage = () => {
         placeholder="Placeholder"
       />
       <div id="button-remove-1" className="advantages-delete"></div>
+      {touched.advantages1 && errors.advantages1 && (
+        <div className="form__error">{errors.advantages1}</div>
+      )}
     </li>
   );
 }
