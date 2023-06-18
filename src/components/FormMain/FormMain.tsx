@@ -55,7 +55,7 @@ export const FormMain = () => {
     dispatch(formSlice.actions.setFormValues(
       userInfo
     ))
-  }, [userInfo]);
+  }, [dispatch, userInfo]);
 
   return (
     <div className="main">
