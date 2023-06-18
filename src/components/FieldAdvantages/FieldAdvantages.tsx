@@ -1,40 +1,60 @@
-import { Field, FieldConfig, FormikState } from 'formik';
+import { Field, FieldArray, FieldConfig, FormikState } from 'formik';
 import './FieldAdvantages.css';
 import { FC } from 'react';
 import { FormValues } from '../../store/slice/formSlice';
 
-interface FieldAdvantagesProps extends FieldConfig<string>, Partial<FormikState<FormValues>> {
+interface FieldAdvantagesProps extends FieldConfig<string> {
   label: string;
   placeholder: string;
+  form: FormikState<Record<string, any>>;
 }
 
 export const FieldAdvantages: FC<FieldAdvantagesProps> = ({
   label, placeholder, validate, name,
+  form: {
+    values
+  }
   // touched, errors
 }) => {
+  const options: string[] = (values && values[name]) ? values[name] as [] : [];
+
   return (
     <div>
       <label className="form__description">{label}</label>
-      <ul className="step2__list-text">
-        <li className="step2__wrapper">
-          <Field
-            id="field-advantages-1"
-            className="form__input advantages"
-            type="text"
-            name={name}
-            placeholder={placeholder}
-            validate={validate}
-          />
-          <div id="button-remove-1" className="advantages-delete"></div>
-          {/* {touched.advantages1 && errors.advantages1 && (
-            <div className="form__error">{errors.advantages1}</div>
-          )} */}
-        </li>
-      </ul>
+      <FieldArray
+        name={name}
+        render={(helpers) => (
+          <div>
+            <ul className="step2__list-text">
+              {options.length > 0 && values[name]?.map((item, index) => (
+                <li className="step2__wrapper">
+                  <Field
+                    id={`field-${name}-${index + 1}`}
+                    className="form__input advantages"
+                    type="text"
+                    name={`${name}.${index}`}
+                    placeholder={placeholder}
+                    validate={validate}
+                  />
+                  <button type="button" id="button-remove-1" className="advantages-delete"
+                    onClick={() => helpers.remove(index)}
+                  ></button>
+                  {/* {touched.advantages1 && errors.advantages1 && (
+                      <div className="form__error">{errors.advantages1}</div>
+                    )} */}
+                </li>
+              ))}
+            </ul>
+            <button type='button' id="button-add" className="step2__button-add"
+              onClick={() => helpers.push('')} >
+              +
+            </button>
+          </div>
+        )}
+      />
 
-      <div id="button-add" className="step2__button-add" >
-        +
-      </div>
+
+
     </div>
   );
 }

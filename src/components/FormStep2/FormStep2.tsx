@@ -23,7 +23,7 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
     <div className="step step2">
       <Formik
         initialValues={{
-          advantages: [],
+          advantages: ['', '', ''],
           // advantages1: '',
           // advantages2: '',
           // advantages3: '',
@@ -32,13 +32,14 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
         }}
         onSubmit={onSubmit}
       >
-        {({ touched, errors }) => (
+        {(form) => (
           <Form className="form">
             <FieldAdvantages
               label={'Advantages'}
               placeholder={'Placeholder'}
               name={'advantages'}
-              // validate={validateAdvantages}
+              form={form}
+            // validate={validateAdvantages}
             />
 
             <div id="checkbox-group" className="checkbox__title">
