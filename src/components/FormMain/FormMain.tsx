@@ -3,6 +3,7 @@ import './FormMain.css';
 import { Formik, Form, Field, FieldProps } from 'formik';
 import { useSelector } from 'react-redux';
 import TextMaskInput from 'react-text-mask';
+import { selectorUserInfo } from '../../store/slice/userInfoSlice';
 
 function validatePhone(value: string) {
   const digits = value.match(/\d/g);
@@ -22,7 +23,7 @@ function validateEmail(value: string) {
 
 export const FormMain = () => {
   const navigate = useNavigate();
-  const initialValues: any = useSelector<any>((state) => state.userInfoState.userInfo);
+  const initialValues = useSelector(selectorUserInfo);
 
   console.log('initialValues', initialValues);
 

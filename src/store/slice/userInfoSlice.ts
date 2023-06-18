@@ -19,8 +19,11 @@ const setUserInfo = (state: UserInfoState, action: PayloadAction<UserInfo>) => {
   state.userInfo = action.payload;
 };
 
+export const selectorUserInfo = (appState: { userInfoState: UserInfoState }): UserInfo =>
+  appState.userInfoState.userInfo;
+
 export const userInfoSlice = createSlice({
-  name: 'formState',
+  name: 'userInfoSlice',
   initialState,
   reducers: {
     setUserInfo,
