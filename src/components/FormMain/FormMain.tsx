@@ -51,12 +51,6 @@ export const FormMain = () => {
     ];
   }
 
-  useEffect(() => {
-    dispatch(formSlice.actions.setFormValues(
-      userInfo
-    ))
-  }, [dispatch, userInfo]);
-
   return (
     <div className="main">
       {userInfo?.phone ? (
@@ -66,7 +60,9 @@ export const FormMain = () => {
             email: userInfo.email,
           }}
           onSubmit={(values) => {
-            console.log(values);
+            console.log(values); dispatch(formSlice.actions.setFormValues(
+              userInfo
+            ))
             navigate('/create');
           }}
         >
