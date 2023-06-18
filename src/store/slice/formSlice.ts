@@ -8,8 +8,8 @@ export interface FormValues {
   surname: string;
   sex: string;
   advantages: string[];
-  checkbox: string[];
-  radio: string;
+  checked: string[];
+  picked: string;
   about: string;
 }
 
@@ -24,9 +24,9 @@ const initialState: FormValuesState = {
     name: '',
     surname: '',
     sex: '',
-    advantages: ['', '', ''],
-    checkbox: [],
-    radio: '',
+    advantages: ['a', 'b', 'c'],
+    checked: ['', '', ''],
+    picked: '',
     about: '',
   },
 };
@@ -36,7 +36,7 @@ const setFormValues = (state: FormValuesState, action: PayloadAction<Partial<For
 };
 
 const updateFormValues = (state: FormValuesState, action: PayloadAction<Partial<FormValues>>) => {
-  state.formState = {...state.formState, ...action.payload};
+  state.formState = { ...state.formState, ...action.payload };
 };
 
 export const formSlice = createSlice({

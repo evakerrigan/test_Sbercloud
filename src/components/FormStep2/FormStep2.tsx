@@ -3,6 +3,7 @@ import { Field, Form, Formik, FormikConfig } from 'formik';
 import { FormStepProps } from '../../pages/Create/Create';
 import { useDispatch } from 'react-redux';
 import { FormValues, formSlice } from '../../store/slice/formSlice';
+import { FieldAdvantages } from '../FieldAdvantages/FieldAdvantages';
 
 export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
 
@@ -22,9 +23,10 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
     <div className="step step2">
       <Formik
         initialValues={{
-          advantages1: '',
-          advantages2: '',
-          advantages3: '',
+          advantages: [],
+          // advantages1: '',
+          // advantages2: '',
+          // advantages3: '',
           checked: [],
           picked: '',
         }}
@@ -32,56 +34,12 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
       >
         {({ touched, errors }) => (
           <Form className="form">
-            <label className="form__description">Advantages</label>
-            <ul className="step2__list-text">
-              <li className="step2__wrapper">
-                <Field
-                  id="field-advantages-1"
-                  className="form__input advantages"
-                  type="text"
-                  name="advantages1"
-                  placeholder="Placeholder"
-                  validate={validateAdvantages}
-                />
-                <div id="button-remove-1" className="advantages-delete"></div>
-                {touched.advantages1 && errors.advantages1 && (
-                  <div className="form__error">{errors.advantages1}</div>
-                )}
-              </li>
-              <li className="step2__wrapper">
-                <Field
-                  id="field-advantages-2"
-                  className="form__input advantages"
-                  type="text"
-                  name="advantages2"
-                  placeholder="Placeholder"
-                  validate={validateAdvantages}
-                />
-                <div id="button-remove-2" className="advantages-delete"></div>
-                {touched.advantages1 && errors.advantages1 && (
-                  <div className="form__error">{errors.advantages1}</div>
-                )}
-              </li>
-              <li className="step2__wrapper">
-                <Field
-                  id="field-advantages-3"
-                  className="form__input advantages"
-                  type="text"
-                  name="advantages3"
-                  placeholder="Placeholder"
-                  validate={validateAdvantages}
-                />
-                <div id="button-remove-3" className="advantages-delete"></div>
-                {touched.advantages1 && errors.advantages1 && (
-                  <div className="form__error">{errors.advantages1}</div>
-                )}
-              </li>
-            </ul>
-
-            <div id="button-add" className="step2__button-add"
-            >
-              +
-            </div>
+            <FieldAdvantages
+              label={'Advantages'}
+              placeholder={'Placeholder'}
+              name={'advantages'}
+              // validate={validateAdvantages}
+            />
 
             <div id="checkbox-group" className="checkbox__title">
               Checkbox group
