@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-export interface FormState {
+export interface FormValues {
   phone: string;
   email: string;
   nickname: string;
@@ -13,23 +13,33 @@ export interface FormState {
   about: string;
 }
 
-export interface IState {
-  formState: FormState;
+export interface FormValuesState {
+  formState: Partial<FormValues>;
 }
-
-export const initialSlice = createSlice({
-  name: 'formState',
-  initialState: {
-    phone: '467876',
-    email: 'dfghjk',
+const initialState: FormValuesState = {
+  formState: {
+    phone: '',
+    email: '',
     nickname: '',
     name: '',
     surname: '',
     sex: '',
     advantages: ['', '', ''],
     checkbox: [],
-    radio: null,
+    radio: '',
     about: '',
   },
-  reducers: {},
+}
+
+const setFormValues = (state: FormValuesState, action: PayloadAction<Partial<FormValues>>) => {
+  state.formState = action.payload;
+}
+
+
+export const formSlice = createSlice({
+  name: 'formState',
+  initialState,
+  reducers: {
+    setFormValues,
+  },
 });
