@@ -26,7 +26,8 @@ export const FieldAdvantages: FC<FieldAdvantagesProps> = ({
         render={(helpers) => (
           <div>
             <ul className="step2__list-text">
-              {options.length > 0 && values[name]?.map((item, index) => (
+              {/* @ts-ignore */}
+              {options.length > 0 && values[name]?.map((_item, index) => (
                 <li className="step2__wrapper">
                   <Field
                     id={`field-${name}-${index + 1}`}
