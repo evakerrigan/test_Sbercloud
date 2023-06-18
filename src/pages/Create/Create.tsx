@@ -4,15 +4,21 @@ import { FormStep2 } from '../../components/FormStep2/FormStep2';
 import { FormStep3 } from '../../components/FormStep3/FormStep3';
 import { Dispatch, SetStateAction, useState } from 'react';
 import { Modal } from '../../components/Modal/Modal';
+import { useDispatch, useSelector } from 'react-redux';
+import { formSlice, selectorIsOpenSuccessModal } from '../../store/slice/formSlice';
 
 export interface FormStepProps {
   setActiveStep: Dispatch<SetStateAction<number>>;
 }
 
 export const Create = () => {
-  const [active, setActive] = useState(false);
-
+  const isOpenSuccessModal = useSelector(selectorIsOpenSuccessModal);
   const [activeStep, setActiveStep] = useState(0);
+
+const dispatch = useDispatch();
+const onCloseSuccessModal = () => {
+  dispatch(formSlice.actions.doCloseSuccessModal());
+}
 
   const FormStep = () => {
     switch (activeStep) {
@@ -46,8 +52,8 @@ export const Create = () => {
                 activeStep === 0
                   ? "url('src/assets/images/DotSmall.png')"
                   : activeStep === 1
-                  ? "url('/src/assets/images/CheckSmall.png')"
-                  : "url('/src/assets/images/CheckSmall.png')",
+                    ? "url('/src/assets/images/CheckSmall.png')"
+                    : "url('/src/assets/images/CheckSmall.png')",
             }}
           ></div>
           <div
@@ -72,8 +78,8 @@ export const Create = () => {
                 activeStep === 0
                   ? ''
                   : activeStep === 1
-                  ? "url('/src/assets/images/DotSmall.png')"
-                  : "url('/src/assets/images/CheckSmall.png')",
+                    ? "url('/src/assets/images/DotSmall.png')"
+                    : "url('/src/assets/images/CheckSmall.png')",
             }}
           ></div>
           <div
@@ -94,8 +100,8 @@ export const Create = () => {
                 activeStep === 0
                   ? ''
                   : activeStep === 1
-                  ? ''
-                  : "url('/src/assets/images/DotSmall.png')",
+                    ? ''
+                    : "url('/src/assets/images/DotSmall.png')",
             }}
           ></div>
           <div
@@ -107,7 +113,7 @@ export const Create = () => {
         </div>
       </div>
       {FormStep()}
-      {active && <Modal setActive={setActive} />}
+      {isOpenSuccessModal && <Modal onClose={onCloseSuccessModal} />}
     </div>
   );
 };

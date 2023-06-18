@@ -1,4 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
+
 
 export interface FormValues {
   phone: string;
@@ -15,8 +17,10 @@ export interface FormValues {
 
 export interface FormValuesState {
   formState: Partial<FormValues>;
+  isOpenSuccessModal: boolean;
 }
 const initialState: FormValuesState = {
+  isOpenSuccessModal: false,
   formState: {
     phone: '',
     email: '',
@@ -39,8 +43,18 @@ const updateFormValues = (state: FormValuesState, action: PayloadAction<Partial<
   state.formState = { ...state.formState, ...action.payload };
 };
 
+const doOpenSuccessModal = (state: FormValuesState) => {
+  state.isOpenSuccessModal = true;
+};
+const doCloseSuccessModal = (state: FormValuesState) => {
+  state.isOpenSuccessModal = false;
+};
+
 export const selectorFormValues = (appState: { formValuesState: FormValuesState }) =>
   appState.formValuesState.formState || {};
+
+export const selectorIsOpenSuccessModal = (appState: { formValuesState: FormValuesState }) =>
+  appState.formValuesState.isOpenSuccessModal;
 
 export const formSlice = createSlice({
   name: 'formState',
@@ -48,5 +62,7 @@ export const formSlice = createSlice({
   reducers: {
     setFormValues,
     updateFormValues,
+    doOpenSuccessModal,
+    doCloseSuccessModal,
   },
 });

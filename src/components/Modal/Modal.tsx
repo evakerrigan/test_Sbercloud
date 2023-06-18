@@ -1,12 +1,11 @@
-import { Dispatch, SetStateAction } from 'react';
 import './Modal.css';
 import { Link } from 'react-router-dom';
 
 interface ModalProps {
-  setActive: Dispatch<SetStateAction<boolean>>;
+  onClose: () => void;
 }
 
-export const Modal = ({ setActive }: ModalProps) => {
+export const Modal = ({onClose }: ModalProps) => {
   return (
     <div className="modal">
       <div className="modal__content error">
@@ -14,10 +13,10 @@ export const Modal = ({ setActive }: ModalProps) => {
         <div className="modal__icon-wrapper">
           <div className="modal__icon error"></div>
         </div>
-        <button id="button-close" className="form__button next" onClick={() => setActive(false)}>
+        <button id="button-close" className="form__button next" onClick={onClose}>
           Закрыть
         </button>
-        <div className="modal__close" onClick={() => setActive(false)}></div>
+        <div className="modal__close" onClick={onClose}></div>
       </div>
     </div>
   );
