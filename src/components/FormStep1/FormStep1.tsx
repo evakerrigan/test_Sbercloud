@@ -6,36 +6,53 @@ import { FormValues, formSlice, selectorFormValues } from '../../store/slice/for
 import { useDispatch, useSelector } from 'react-redux';
 // import Select from 'react-select';
 // import { FormControl, MenuItem, Select, SelectChangeEvent,} from '@mui/material';
+import * as Yup from 'yup';
+
+const validationSchema = Yup.object().shape({
+  nickname: Yup.string()
+    .max(30, 'Maximum length is 30 characters')
+    .matches(/^[а-яА-Яa-zA-Z0-9]+$/, 'Only letters and numbers are allowed'),
+  name: Yup.string()
+    .max(50, 'Maximum length is 50 characters')
+    .matches(/^[а-яА-Яa-zA-Z]+$/, 'Only letters are allowed'),
+  surname: Yup.string()
+    .max(50, 'Maximum length is 50 characters')
+    .matches(/^[а-яА-Яa-zA-Z]+$/, 'Only letters are allowed'),
+});
 
 function validateNickName(value: string) {
   if (!value) {
     return 'Введите никнейм';
-  } else if (value.length <= 3) {
-    return 'Никнейм должен состоять из 3 символов';
+  } else if (value.length <= 0) {
+    return 'Никнейм должен состоять минимум из 1 символа';
   }
 }
 function validateName(value: string) {
   if (!value) {
     return 'Введите Имя';
-  } else if (value.length <= 3) {
-    return 'Имя должно состоять из 3 символов';
+  } else if (value.length <= 0) {
+    return 'Имя должно состоять минимум из 1 символа';
+  } else if (value.length > 50) {
+    return 'Имя должно быть меньше 50 символов';
   }
 }
 function validateSurName(value: string) {
   if (!value) {
     return 'Введите Фамилию';
-  } else if (value.length <= 3) {
-    return 'Фамилия должна состоять из 3 символов';
+  } else if (value.length <= 0) {
+    return 'Фамилия должна состоять минимум из 1 символа';
+  } else if (value.length > 50) {
+    return 'Фамилия должна быть меньше 50 символов';
   }
 }
-function validateSex(value: string) {
-  if (value === 'null') {
+
+function validateSex(value: '') {
+  if (value === '') {
     return 'Выберите пол';
   }
 }
 
 export const FormStep1 = ({ setActiveStep }: FormStepProps) => {
-
   const dispatch = useDispatch();
   // const sexOptions = [
   //   { value: 'null', label: 'Не выбран' },
@@ -55,16 +72,14 @@ export const FormStep1 = ({ setActiveStep }: FormStepProps) => {
   const onSubmit: FormikConfig<Partial<FormValues>>['onSubmit'] = (values) => {
     dispatch(formSlice.actions.updateFormValues(values));
     setActiveStep(1);
-  }
+  };
 
-const formValues = useSelector(selectorFormValues);
+  const formValues = useSelector(selectorFormValues);
+  console.log('formValues', formValues);
 
   return (
     <div className="step step1">
-      <Formik
-        initialValues={formValues}
-        onSubmit={onSubmit}
-      >
+      <Formik initialValues={formValues} onSubmit={onSubmit} validationSchema={validationSchema}>
         {({ touched, errors }) => (
           <Form className="form">
             <div className="form__wrapper">
