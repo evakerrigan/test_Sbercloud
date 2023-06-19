@@ -12,6 +12,7 @@
   position: absolute;
   top: 13px;
   left: 317px;
+  background-color: transparent;
 }
 .form__advantages .form__input {
   margin-bottom: 6px;
