@@ -21,6 +21,9 @@ export const FormStep3 = ({ setActiveStep }: FormStepProps) => {
     if (!value) {
       return 'Введите текст о себе';
     }
+    if (value.length > 200) {
+      return 'Максимум 200 символов';
+    }
   }
   const onSubmit: FormikConfig<Partial<FormValues>>['onSubmit'] = (values) => {
     dispatch(formSlice.actions.updateFormValues(values));
