@@ -54,11 +54,16 @@ const onCloseErrorModal = () => {
             className="progressbar__image"
             style={{
               backgroundImage:
-                activeStep === 0
-                  ? "url('src/assets/images/DotSmall.png')"
+                activeStep === 0 
+                  // ? "url('src/assets/images/DotSmall.png')"
+                  // : activeStep === 1
+                  //   ? "url('/src/assets/images/CheckSmall.png')"
+                  //   : "url('/src/assets/images/CheckSmall.png')",
+
+                  ? "url('https://kerrigan.su/testovoe/DotSmall.png')"
                   : activeStep === 1
-                    ? "url('/src/assets/images/CheckSmall.png')"
-                    : "url('/src/assets/images/CheckSmall.png')",
+                    ? "url('https://kerrigan.su/testovoe/CheckSmall.png')"
+                    : "url('https://kerrigan.su/testovoe/CheckSmall.png')",
             }}
           ></div>
           <div
