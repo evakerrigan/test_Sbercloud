@@ -26,20 +26,10 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
     dispatch(formSlice.actions.updateFormValues(values));
     setActiveStep(2);
   }
-  // function validateAdvantages(value: string) {
-  //   if (!value) {
-  //     return 'Введите значение';
-  //   }
-  // }
 
   return (
     <div className="step step2">
       <Formik
-        // initialValues={{
-        //   advantages: ['', '', ''],
-        //   checked: [],
-        //   picked: '',
-        // }}
         initialValues={formValues}
         onSubmit={onSubmit}
         validationSchema={validationSchema}
@@ -51,7 +41,6 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
               placeholder={'Placeholder'}
               name={'advantages'}
               form={form}
-            // validate={validateAdvantages}
             />
 
             <div id="checkbox-group" className="checkbox__title">

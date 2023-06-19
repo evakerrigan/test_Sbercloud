@@ -59,7 +59,7 @@ export const FormMain = () => {
             email: userInfo.email,
           }}
           onSubmit={(values) => {
-            console.log(values); dispatch(formSlice.actions.setFormValues(
+            dispatch(formSlice.actions.setFormValues(
               userInfo
             ))
             navigate('/create');

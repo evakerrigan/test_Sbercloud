@@ -75,7 +75,7 @@ export const FormStep1 = ({ setActiveStep }: FormStepProps) => {
   };
 
   const formValues = useSelector(selectorFormValues);
-  console.log('formValues', formValues);
+  // console.log('formValues', formValues);
 
   return (
     <div className="step step1">
