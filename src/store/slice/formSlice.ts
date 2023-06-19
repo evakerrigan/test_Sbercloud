@@ -16,9 +16,11 @@ export interface FormValues {
 export interface FormValuesState {
   formState: Partial<FormValues>;
   isOpenSuccessModal: boolean;
+  isOpenErrorModal: boolean;
 }
 const initialState: FormValuesState = {
   isOpenSuccessModal: false,
+  isOpenErrorModal: false,
   formState: {
     phone: '',
     email: '',
@@ -47,12 +49,21 @@ const doOpenSuccessModal = (state: FormValuesState) => {
 const doCloseSuccessModal = (state: FormValuesState) => {
   state.isOpenSuccessModal = false;
 };
+const doOpenErrorModal = (state: FormValuesState) => {
+  state.isOpenErrorModal = true;
+};
+const doCloseErrorModal = (state: FormValuesState) => {
+  state.isOpenErrorModal = false;
+};
 
 export const selectorFormValues = (appState: { formValuesState: FormValuesState }) =>
   appState.formValuesState.formState || {};
 
 export const selectorIsOpenSuccessModal = (appState: { formValuesState: FormValuesState }) =>
   appState.formValuesState.isOpenSuccessModal;
+
+  export const selectorIsOpenErrorModal = (appState: { formValuesState: FormValuesState }) =>
+  appState.formValuesState.isOpenErrorModal;
 
 export const formSlice = createSlice({
   name: 'formState',
@@ -62,5 +73,7 @@ export const formSlice = createSlice({
     updateFormValues,
     doOpenSuccessModal,
     doCloseSuccessModal,
+    doOpenErrorModal,
+    doCloseErrorModal,
   },
 });

@@ -13,7 +13,7 @@ export const Modal = ({onClose }: ModalProps) => {
         <div className="modal__icon-wrapper">
           <div className="modal__icon"></div>
         </div>
-        <Link id="button-to-main" className="form__button next" to="/">
+        <Link id="button-to-main" className="form__button next" to="/" onClick={onClose}>
           На главную
         </Link>
       </div>

@@ -4,8 +4,9 @@ import { FormStep2 } from '../../components/FormStep2/FormStep2';
 import { FormStep3 } from '../../components/FormStep3/FormStep3';
 import { Dispatch, SetStateAction, useState } from 'react';
 import { Modal } from '../../components/Modal/Modal';
+import { ErrorModal } from '../../components/Modal/ErrorModal';
 import { useDispatch, useSelector } from 'react-redux';
-import { formSlice, selectorIsOpenSuccessModal } from '../../store/slice/formSlice';
+import { formSlice, selectorIsOpenSuccessModal, selectorIsOpenErrorModal } from '../../store/slice/formSlice';
 
 export interface FormStepProps {
   setActiveStep: Dispatch<SetStateAction<number>>;
@@ -13,11 +14,15 @@ export interface FormStepProps {
 
 export const Create = () => {
   const isOpenSuccessModal = useSelector(selectorIsOpenSuccessModal);
+  const isOpenErrorModal = useSelector(selectorIsOpenErrorModal);
   const [activeStep, setActiveStep] = useState(0);
 
 const dispatch = useDispatch();
 const onCloseSuccessModal = () => {
   dispatch(formSlice.actions.doCloseSuccessModal());
+}
+const onCloseErrorModal = () => {
+  dispatch(formSlice.actions.doCloseErrorModal());
 }
 
   const FormStep = () => {
@@ -114,6 +119,7 @@ const onCloseSuccessModal = () => {
       </div>
       {FormStep()}
       {isOpenSuccessModal && <Modal onClose={onCloseSuccessModal} />}
+      {isOpenErrorModal && <ErrorModal onClose={onCloseErrorModal} />}
     </div>
   );
 };
