@@ -4,7 +4,7 @@ interface ModalProps {
   onClose: () => void;
 }
 
-export const Modal = ({onClose }: ModalProps) => {
+export const ErrorModal = ({onClose }: ModalProps) => {
   return (
     <div className="modal">
       <div className="modal__content error">
