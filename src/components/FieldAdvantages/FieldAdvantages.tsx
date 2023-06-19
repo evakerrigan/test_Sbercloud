@@ -30,6 +30,7 @@ export const FieldAdvantages: FC<FieldAdvantagesProps> = ({
                 <li className="step2__wrapper">
                   <Field
                     id={`field-${name}-${index + 1}`}
+                    // key={`${index}`}
                     className="form__input advantages"
                     type="text"
                     name={`${name}.${index}`}
