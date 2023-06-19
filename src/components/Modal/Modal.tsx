@@ -8,6 +8,20 @@ interface ModalProps {
 export const Modal = ({onClose }: ModalProps) => {
   return (
     <div className="modal">
+      <div className="modal__content success">
+        <div className="modal__title">Форма успешно отправлена</div>
+        <div className="modal__icon-wrapper">
+          <div className="modal__icon"></div>
+        </div>
+        <Link id="button-to-main" className="form__button next" to="/">
+          На главную
+        </Link>
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="modal">
       <div className="modal__content error">
         <div className="modal__title">Ошибка</div>
         <div className="modal__icon-wrapper">
@@ -21,17 +35,5 @@ export const Modal = ({onClose }: ModalProps) => {
     </div>
   );
 
-  return (
-    <div className="modal">
-      <div className="modal__content success">
-        <div className="modal__title">Форма успешно отправлена</div>
-        <div className="modal__icon-wrapper">
-          <div className="modal__icon"></div>
-        </div>
-        <Link id="button-to-main" className="form__button next" to="/">
-          На главную
-        </Link>
-      </div>
-    </div>
-  );
+
 };
