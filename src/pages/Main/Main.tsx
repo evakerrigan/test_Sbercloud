@@ -19,10 +19,12 @@ export const Main = () => {
 
 
   useEffect(() => {
-    setTimeout(
-      () => sendRequestToBackend().then((userInfo) => {
-        dispatch(userInfoSlice.actions.setUserInfo(userInfo))
-      }), 1000);
+    // setTimeout(
+    //   () =>
+        sendRequestToBackend().then((userInfo) => {
+          dispatch(userInfoSlice.actions.setUserInfo(userInfo))
+        })
+    // , 1000);
   })
 
   return (
