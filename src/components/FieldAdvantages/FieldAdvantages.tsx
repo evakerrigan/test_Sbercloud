@@ -27,10 +27,10 @@ export const FieldAdvantages: FC<FieldAdvantagesProps> = ({
             <ul className="step2__list-text">
               {/* @ts-ignore */}
               {options.length > 0 && values[name]?.map((_item, index) => (
-                <li className="step2__wrapper">
+                <li className="step2__wrapper" key={`${index}`}>
                   <Field
                     id={`field-${name}-${index + 1}`}
-                    // key={`${index}`}
+                    key={`${index}`}
                     className="form__input advantages"
                     type="text"
                     name={`${name}.${index}`}
