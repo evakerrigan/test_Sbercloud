@@ -4,6 +4,17 @@ import { FormStepProps } from '../../pages/Create/Create';
 import { useDispatch } from 'react-redux';
 import { FormValues, formSlice } from '../../store/slice/formSlice';
 import { FieldAdvantages } from '../FieldAdvantages/FieldAdvantages';
+import * as Yup from 'yup';
+
+const checkboxSchema = Yup.object().shape({
+  checked: Yup.array().min(1, 'At least one option must be selected'),
+});
+
+const radioSchema = Yup.object().shape({
+  picked: Yup.string().required('At least one option must be selected'),
+});
+
+const validationSchema = Yup.object().concat(checkboxSchema).concat(radioSchema);
 
 export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
 
@@ -31,6 +42,7 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
           picked: '',
         }}
         onSubmit={onSubmit}
+        validationSchema={validationSchema}
       >
         {(form) => (
           <Form className="form">
@@ -73,6 +85,9 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
                 />
                 3
               </label>
+              {form.errors.checked && form.touched.checked && (
+                <div className="form__error" style={{ position: 'relative' }}>{form.errors.checked}</div>
+              )}
             </div>
 
             <div id="my-radio-group" className="radio__title">
@@ -88,7 +103,11 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
               <label className="form__radio">
                 <Field id="field-radio-group-option-3" type="radio" name="picked" value="3" />3
               </label>
+              {form.errors.picked && form.touched.picked && (
+                <div className="form__error" style={{ position: 'relative' }}>{form.errors.picked}</div>
+              )}
             </div>
+
 
             <div className="form__wrapper-button">
               <button

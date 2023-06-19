@@ -18,7 +18,7 @@ export const FieldAdvantages: FC<FieldAdvantagesProps> = ({
   const options: string[] = (values && values[name]) ? values[name] as [] : [];
 
   return (
-    <div>
+    <div className="form__advantages">
       <label className="form__description">{label}</label>
       <FieldArray
         name={name}

@@ -13,3 +13,32 @@
   top: 13px;
   left: 317px;
 }
+.form__advantages .form__input {
+  margin-bottom: 6px;
+}
+.form__advantages ul {
+  margin: 0;
+}
+.step2__button-add {
+  padding: 22px 21px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  /* margin: 23px 0; */
+  font-size: 30px;
+  line-height: 20px;
+  background: #fff;
+  color: #5558fa;
+  border: 1px solid #5558fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.step2__button-add:hover {
+  background: #5558fa;
+  color: #fff;
+}
+.step2__button-add:active {
+  background: #272873;
+}
