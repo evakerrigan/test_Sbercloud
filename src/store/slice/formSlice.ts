@@ -28,7 +28,7 @@ const initialState: FormValuesState = {
     name: '',
     surname: '',
     sex: '',
-    advantages: ['a', 'b', 'c'],
+    advantages: ['', '', ''],
     checked: ['', '', ''],
     picked: '',
     about: '',
