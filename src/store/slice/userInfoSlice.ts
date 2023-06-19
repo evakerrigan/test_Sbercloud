@@ -3,6 +3,14 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 export interface UserInfo {
   phone: string;
   email: string;
+  nickname: string;
+  name: string;
+  surname: string;
+  sex: string;
+  advantages: string[];
+  checked: string[];
+  picked: string;
+  about: string;
 }
 
 export interface UserInfoState {
@@ -12,6 +20,14 @@ const initialState: UserInfoState = {
   userInfo: {
     phone: '',
     email: '',
+    nickname: '',
+    name: '',
+    surname: '',
+    sex: '',
+    advantages: [],
+    checked: [],
+    picked: '',
+    about: '',
   },
 };
 

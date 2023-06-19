@@ -9,7 +9,15 @@ import { UserInfo, userInfoSlice } from '../../store/slice/userInfoSlice';
 const sendRequestToBackend = async (): Promise<UserInfo> => {
   return {
     phone: '+79313151738',
-    email: 'evakerrigan@gmail.com'
+    email: 'evakerrigan@gmail.com',
+    nickname: '',
+    name: '',
+    surname: '',
+    sex: '',
+    advantages: [],
+    checked: [],
+    picked: '',
+    about: '',
   };
 }
 
