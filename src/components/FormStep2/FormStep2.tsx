@@ -1,8 +1,8 @@
 import './FormStep2.css';
 import { Field, Form, Formik, FormikConfig } from 'formik';
 import { FormStepProps } from '../../pages/Create/Create';
-import { useDispatch } from 'react-redux';
-import { FormValues, formSlice } from '../../store/slice/formSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { FormValues, formSlice, selectorFormValues } from '../../store/slice/formSlice';
 import { FieldAdvantages } from '../FieldAdvantages/FieldAdvantages';
 import * as Yup from 'yup';
 
@@ -20,6 +20,8 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
 
   const dispatch = useDispatch();
 
+  const formValues = useSelector(selectorFormValues);
+
   const onSubmit: FormikConfig<Partial<FormValues>>['onSubmit'] = (values) => {
     dispatch(formSlice.actions.updateFormValues(values));
     setActiveStep(2);
@@ -33,14 +35,12 @@ export const FormStep2 = ({ setActiveStep }: FormStepProps) => {
   return (
     <div className="step step2">
       <Formik
-        initialValues={{
-          advantages: ['', '', ''],
-          // advantages1: '',
-          // advantages2: '',
-          // advantages3: '',
-          checked: [],
-          picked: '',
-        }}
+        // initialValues={{
+        //   advantages: ['', '', ''],
+        //   checked: [],
+        //   picked: '',
+        // }}
+        initialValues={formValues}
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >

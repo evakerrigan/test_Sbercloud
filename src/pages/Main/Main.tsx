@@ -14,7 +14,7 @@ const sendRequestToBackend = async (): Promise<UserInfo> => {
     name: '',
     surname: '',
     sex: '',
-    advantages: [],
+    advantages: ['', '', ''],
     checked: [],
     picked: '',
     about: '',

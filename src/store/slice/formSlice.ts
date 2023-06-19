@@ -62,7 +62,7 @@ export const selectorFormValues = (appState: { formValuesState: FormValuesState 
 export const selectorIsOpenSuccessModal = (appState: { formValuesState: FormValuesState }) =>
   appState.formValuesState.isOpenSuccessModal;
 
-  export const selectorIsOpenErrorModal = (appState: { formValuesState: FormValuesState }) =>
+export const selectorIsOpenErrorModal = (appState: { formValuesState: FormValuesState }) =>
   appState.formValuesState.isOpenErrorModal;
 
 export const formSlice = createSlice({
