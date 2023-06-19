@@ -56,3 +56,9 @@
 .form__button:active {
   background: #272873;
 }
+@media (max-width: 450px) {
+  .form__input {
+    width: 300px;
+    margin: 0 auto;
+  }
+}

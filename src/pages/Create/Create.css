@@ -63,3 +63,11 @@
 .dot3 .progressbar__number {
   left: 5px;
 }
+
+@media (max-width: 450px) {
+  .create {
+    min-width: 280px;
+    margin: 0 auto;
+    padding: 22px 20px 60px 20px;
+  }
+}

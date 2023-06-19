@@ -82,3 +82,9 @@
   width: 88px;
   margin-right: revert;
 }
+@media (max-width: 450px) {
+  .modal__content {
+    width: 300px;
+    margin: 0 auto;
+  }
+}
